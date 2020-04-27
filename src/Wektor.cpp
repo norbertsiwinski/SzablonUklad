@@ -54,6 +54,7 @@ template<class TYP, int Rozmiar>
 TYP Wektor<TYP,Rozmiar>::operator*(const Wektor<TYP, Rozmiar> & W2) const{
 
 TYP Wynik;
+Wynik=0;
 
   for(int i=0; i<Rozmiar; i++)
   Wynik=Wynik+tab[i]*W2[i];
