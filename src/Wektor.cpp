@@ -101,9 +101,9 @@ if(abs(tab[i]-W2[i]) > epsilon)
 return false;
 
 }
-
   return true;
 }
+
 
 
 template<class TYP, int Rozmiar>
@@ -137,10 +137,13 @@ strm<<"|";
 strm<<W[i]<<" ";
 
 strm<<"|";
+cout<<endl;
+
+
 return strm;
 
  }
-
+/*
  template <> bool Wektor<LZespolona,5>::operator==(const Wektor<LZespolona,5> &W2)const{
 
 Wektor<LZespolona,5> Wynik;
@@ -155,3 +158,6 @@ return true;
 
 
  }
+
+
+ */

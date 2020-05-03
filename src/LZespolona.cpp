@@ -35,7 +35,7 @@ LZespolona operator * (LZespolona Skl1, LZespolona Skl2){
  return Wynik;
 
 }
-LZespolona operator / (LZespolona Skl1, LZespolona Skl2){
+LZespolona operator / (const LZespolona & Skl1, const LZespolona & Skl2) {
 
 LZespolona Wynik;
 
@@ -43,10 +43,20 @@ LZespolona LSprz1=sprzezenie(Skl2);
 double ModzLiczb=modul(Skl2);
 ModzLiczb=pow(ModzLiczb,2);  
 LZespolona x=Skl1*LSprz1;
-Wynik=dziel(x,ModzLiczb);
+Wynik=x/ModzLiczb;
+
 return Wynik;
 
 }
+LZespolona operator / (LZespolona Skl1, double x){
+
+LZespolona Wynik;
+Wynik.re=Skl1.re/x;
+Wynik.im=Skl1.im/x;
+return Wynik;
+
+}
+
 LZespolona sprzezenie(LZespolona L){
 
 L.im=-L.im;
@@ -68,7 +78,6 @@ double LZespolona::Modul() const {
 LZespolona dziel(LZespolona Skl1,double y){
 LZespolona Wynik;
 
-
 if(y!=0){
 LZespolona Wynik;
 Wynik.im=Skl1.im/y;
@@ -77,18 +86,20 @@ Wynik.re=Skl1.re/y;
 else exit(1);
 
 return Wynik;
+
 }
 
 
 
-bool operator ==(LZespolona Skl1, LZespolona Skl2)
+bool operator ==(const LZespolona Skl1, const LZespolona Skl2)
 {
   if(Skl1.re==Skl2.re && Skl1.im==Skl2.im)
   return true;
   else
   return false;
 }
-bool operator !=(LZespolona Skl1, LZespolona Skl2)
+
+bool operator !=(const LZespolona Skl1, const LZespolona Skl2)
 {
   if(Skl1.re!=Skl2.re || Skl1.im!=Skl2.im)
   return true;
@@ -114,6 +125,8 @@ std::istream & operator >>(std::istream & strm, LZespolona & Skl){
     return strm;
 }
 
+
+
 std::ostream & operator <<(std::ostream & strm, LZespolona L)
 {
   strm<<'('<<L.re<<showpos<<L.im<<noshowpos<<"i)";
@@ -131,6 +144,9 @@ Wynik=Wynik.im * x;
 
 return Wynik;
 
+}
+double abs (const LZespolona &Skl1){
 
+return abs(Skl1.Modul());
 
 }

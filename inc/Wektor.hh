@@ -1,3 +1,6 @@
+#ifndef WEKTOR_HH
+#define WEKTOR_HH
+
 
 #include <iostream>
 #include <math.h>
@@ -26,7 +29,7 @@ TYP & operator [] (int index);
    TYP operator*(const Wektor<TYP, Rozmiar> & W2) const;
   Wektor<TYP, Rozmiar> operator*(TYP l2)const; 
    
-
+TYP Abs()const;
 
   bool operator==(const Wektor<TYP, Rozmiar> & W2)const;
   bool operator!=(const Wektor<TYP, Rozmiar> & W2)const;
@@ -56,3 +59,4 @@ std::istream& operator >> (std::istream &Strm, Wektor<TYP, Rozmiar> &Wek);
 
 
 
+#endif
